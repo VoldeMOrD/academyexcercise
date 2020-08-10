@@ -5,3 +5,7 @@ nav {
 mat-icon {
     vertical-align: middle;
 }
+
+a {
+    color: white !important;
+}
