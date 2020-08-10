@@ -31,7 +31,7 @@ describe('Header Component Test', () => {
     expect(title.textContent).toContain(component.title);
   });
 
-  it('should render menu icon', () => {
+  it('should render logout icon', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('mat-icon')).toBeTruthy();
   });
