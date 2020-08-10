@@ -1,0 +1,11 @@
+nav {
+    height: 100%;
+}
+
+mat-icon {
+    vertical-align: middle;
+}
+
+a {
+    color: white !important;
+}
