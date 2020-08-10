@@ -1,0 +1,9 @@
+.header {
+    background-color: black;
+    height: 7em;
+}
+
+p {
+    margin-left: 2em;
+    color: white;
+}
