@@ -1,9 +1,10 @@
 .header {
     background-color: black;
-    height: 7em;
+    height: 5em;
+    padding-left: 3em;
 }
 
-p {
-    margin-left: 2em;
-    color: white;
+button {
+    position: absolute;
+    right: 2em;
 }
