@@ -1,21 +1,19 @@
-<nav class="d-none d-md-block bg-dark sidebar">
-    <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">
-                    <mat-icon>supervisor_account</mat-icon> User List
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/create']" routerLinkActive="router-link-active">
-                    <mat-icon>account_circle</mat-icon> New user
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " [routerLink]="['/settings']" routerLinkActive="router-link-active">
-                    <mat-icon>settings</mat-icon> Settings
-                </a>
-            </li>
-        </ul>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="router-link-active">
+            <a class="nav-link" [routerLink]="['']">
+                <mat-icon>supervisor_account</mat-icon> User List
+            </a>
+        </li>
+        <li class="nav-item" routerLinkActive="router-link-active">
+            <a class="nav-link" [routerLink]="['create']">
+                <mat-icon>account_circle</mat-icon> New user
+            </a>
+        </li>
+    </ul>
+    <div class="my-2 my-sm-0">
+        <button mat-icon-button aria-label="menu button" class="my-2 my-sm-0">
+            <mat-icon>power_settings_new</mat-icon>
+        </button>
     </div>
-</nav>
+</div>
