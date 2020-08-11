@@ -14,3 +14,7 @@ body {
 .main {
     margin: 0 0 5em 11em;
 }
+
+.title>h1 {
+    font-weight: bold;
+}

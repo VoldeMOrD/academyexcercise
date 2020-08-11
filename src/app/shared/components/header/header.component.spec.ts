@@ -26,7 +26,7 @@ describe('Header Component Test', () => {
   });
 
   it('should display the default title', () => {
-    expect(title.textContent).toContain(component.title);
+    expect(title.textContent).toContain(component.title.toUpperCase());
   });
 
   it('should render logout icon', () => {
