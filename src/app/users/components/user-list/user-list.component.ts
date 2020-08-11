@@ -13,7 +13,7 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) {
     this.userService.getUserList(0, 10).subscribe(list => {
       // console.log(list);
-      this.users = list.slice(0, 10);
+      this.users = list.slice(0, 15);
     });
   }
 
