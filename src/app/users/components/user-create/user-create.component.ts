@@ -28,7 +28,7 @@ export class UserCreateComponent implements OnInit {
 
       const newUser: IUser = {
         id: newIndex,
-        createdAt: new Date().toString(),
+        createdAt: new Date(),
         name: this.name,
         lastName: this.lastName,
         email: this.email,
