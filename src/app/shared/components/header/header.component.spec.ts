@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
-import { AppRoutingModule } from '../../../app-routing.module';
 
 describe('Header Component Test', () => {
   let component: HeaderComponent;
@@ -10,8 +9,7 @@ describe('Header Component Test', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
-      imports: [ AppRoutingModule ],
+      declarations: [ HeaderComponent ]
     })
     .compileComponents();
   }));
@@ -20,16 +18,16 @@ describe('Header Component Test', () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    title = fixture.nativeElement.querySelector('p');
+    title = fixture.nativeElement.querySelector('span');
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  /*it('should display the default title', () => {
-    expect(title.textContent).toContain(component.title);
-  });*/
+  it('should display the default title', () => {
+    expect(title.textContent).toContain(component.title.toUpperCase());
+  });
 
   it('should render logout icon', () => {
     const compiled = fixture.nativeElement;

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 html,
 body {
     height: 100%;
@@ -11,6 +12,9 @@ body {
 }
 
 .main {
-    height: 100%;
-    margin-bottom: 5em;
+    margin: 0 0 5em 11em;
+}
+
+.title>h1 {
+    font-weight: bold;
 }
