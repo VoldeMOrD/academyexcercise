@@ -22,4 +22,9 @@ describe('MenuComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render logout icon', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('mat-icon')).toBeTruthy();
+  });
 });

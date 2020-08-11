@@ -1,14 +1,11 @@
-nav {
-    position: fixed;
-    padding: 5em 1em;
-    height: 100%;
-    top: 0;
-}
-
 mat-icon {
     vertical-align: middle;
 }
 
 a {
     color: white !important;
+}
+
+button {
+    color: white;
 }

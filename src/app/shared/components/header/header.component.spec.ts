@@ -29,8 +29,8 @@ describe('Header Component Test', () => {
     expect(title.textContent).toContain(component.title.toUpperCase());
   });
 
-  it('should render logout icon', () => {
+  it('should have menu icon for mobile', () => {
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('mat-icon')).toBeTruthy();
+    expect(compiled.querySelector('button')).toBeTruthy();
   });
 });
