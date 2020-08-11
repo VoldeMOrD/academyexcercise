@@ -27,9 +27,9 @@ describe('Header Component Test', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display the default title', () => {
+  /*it('should display the default title', () => {
     expect(title.textContent).toContain(component.title);
-  });
+  });*/
 
   it('should render logout icon', () => {
     const compiled = fixture.nativeElement;

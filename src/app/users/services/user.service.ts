@@ -23,24 +23,15 @@ export class UserService {
   }
 
   createUser(user: IUser): Observable<IUser>{
-    return this.http.post<IUser>(this.apiUrl, user)
-          .pipe(
-            catchError(this.handleError('add', user))
-          );
+    return this.http.post<IUser>(this.apiUrl, user);
   }
 
   updateUser(user: IUser): Observable<IUser> {
-    return this.http.put<IUser>(this.apiUrl + '/' + user.id, user)
-      .pipe(
-        catchError(this.handleError('update', user))
-      );
+    return this.http.put<IUser>(this.apiUrl + user.id, user);
   }
 
   deleteUser(user: IUser): Observable<IUser> {
-    return this.http.delete<IUser>(this.apiUrl + '/' + user.id)
-      .pipe(
-        catchError(this.handleError('delete', user))
-      );
+    return this.http.delete<IUser>(this.apiUrl + user.id);
   }
 
   handleError(arg0: string, hero: any): any {

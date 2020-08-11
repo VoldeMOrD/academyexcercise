@@ -30,19 +30,11 @@ describe('UserService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get error', inject(
-    [UserService],
-    async (service1: UserService) => {
-      try {
-        const user = await service1
-          .getUser(1)
-          .toPromise();
-
-        expect(user.name).not.toContain('Integration');
-      } catch (err) {
-        // why do you also expect an error to be thrown?
-        expect(err).toContain('error');
-      }
-    }
-  ));
+  /*it('should get user', async () => {
+    service.getUser(1).subscribe((data: IUser) => {
+      console.log(data);
+      //done();
+    });
+    //expect(user.name).toEqual('Vivienne');
+  });*/
 });
