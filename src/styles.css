@@ -11,10 +11,5 @@ body {
 }
 
 .main {
-    height: 100%;
-    margin-right: 0;
-}
-
-.basic {
-    margin-bottom: 5em;
+    margin: 0 0 5em 11em;
 }
