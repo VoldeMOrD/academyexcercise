@@ -1,23 +1,46 @@
-<mat-list>
-    <mat-list-item *ngFor="let user of users">
-        <div class="row col-12">
-            <div class="col-md-4">
-                <span>{{ user.name }} {{ user.lastName }}</span>
-            </div>
-            <div class="col-md-4">
-                <span>{{ user.email }}</span>
-            </div>
-            <div class="col-md-2">
-                <span>{{ user.active }}</span>
-            </div>
-            <div class="col-md-2">
-                <button mat-icon-button aria-label="menu button">
-                    <mat-icon matListIcon>create</mat-icon>
-                </button>
-                <button mat-icon-button aria-label="menu button" (click)=userDelete(user)>
-                    <mat-icon matListIcon>delete</mat-icon>
-                </button>
-            </div>
-        </div>
-    </mat-list-item>
-</mat-list>
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="users">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+
+        <!-- Active Column -->
+        <ng-container matColumnDef="active">
+            <mat-header-cell *matHeaderCellDef> Active </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.active}} </mat-cell>
+        </ng-container>
+
+        <!-- Buttons Column -->
+        <ng-container matColumnDef="button">
+            <mat-header-cell *matHeaderCellDef> Buttons </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-icon-button aria-label="edit button">
+                <mat-icon matListIcon>create</mat-icon>
+            </button>
+                <button mat-icon-button aria-label="delete button" (click)="userDelete(element)">
+                <mat-icon matListIcon>delete</mat-icon>
+            </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef=" displayedColumns "></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns; "></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

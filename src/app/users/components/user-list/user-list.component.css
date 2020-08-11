@@ -1,3 +1,7 @@
-mat-list-item {
-    color: black !important;
+mat-table {
+    width: 100%;
+}
+
+mat-header-cell {
+    font-weight: bold;
 }
