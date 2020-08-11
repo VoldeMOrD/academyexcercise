@@ -6,21 +6,20 @@ import { IUser } from '../../models/user';
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
-  styleUrls: ['./user-create.component.css']
+  styleUrls: ['./user-create.component.css'],
 })
 export class UserCreateComponent implements OnInit {
   name: string;
   lastName: string;
   email: string;
+  model: IUser;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(): void {
     if (this.name && this.lastName && this.email) {
-      console.log('I am in the IF');
       let newIndex = null;
       this.userService.getUserList().subscribe(list => {
         newIndex = list.length;
@@ -28,7 +27,7 @@ export class UserCreateComponent implements OnInit {
 
       const newUser: IUser = {
         id: newIndex,
-        createdAt: new Date().toString(),
+        createdAt: new Date(),
         name: this.name,
         lastName: this.lastName,
         email: this.email,
@@ -40,9 +39,14 @@ export class UserCreateComponent implements OnInit {
         telephone: ''
       };
 
-      this.userService.createUser(newUser);
+      this.createUser(newUser);
       this.router.navigate(['']);
     }
-    console.log('I am in the ELSE');
+  }
+
+  createUser(user: IUser): void {
+    this.userService.createUser(user).subscribe((data: IUser) => {
+      console.log(data);
+    });
   }
 }
