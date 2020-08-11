@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
   @Input() users: any;
@@ -25,9 +25,28 @@ export class UserListComponent implements OnInit {
     this.users.paginator = this.paginator;
   }
 
-  userDelete(user: IUser): void {
-    this.userService.deleteUser(user);
+  getUser(id: number): void {
+    this.userService.getUser(id).subscribe((data: IUser) => {
+      console.log(data);
+    });
   }
 
+  createUser(user: IUser): void {
+    this.userService.createUser(user).subscribe((data: IUser) => {
+      console.log(data);
+    });
+  }
+
+  updateUser(user: IUser): void {
+    this.userService.updateUser(user).subscribe((data: IUser) => {
+      console.log(data);
+    });
+  }
+
+  deleteUser(user: IUser): void {
+    this.userService.deleteUser(user).subscribe((data: IUser) => {
+      console.log(data);
+    });
+  }
 }
 
