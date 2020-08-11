@@ -7,16 +7,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import { UserListComponent } from './users/components/user-list/user-list.component';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
-  declarations: [ AppComponent, UserListComponent ],
+  declarations: [ AppComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]
