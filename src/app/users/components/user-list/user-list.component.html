@@ -11,8 +11,12 @@
                 <span>{{ user.active }}</span>
             </div>
             <div class="col-md-2">
-                <mat-icon matListIcon>create</mat-icon>
-                <mat-icon matListIcon>delete</mat-icon>
+                <button mat-icon-button aria-label="menu button">
+                    <mat-icon matListIcon>create</mat-icon>
+                </button>
+                <button mat-icon-button aria-label="menu button">
+                    <mat-icon matListIcon>delete</mat-icon>
+                </button>
             </div>
         </div>
     </mat-list-item>
