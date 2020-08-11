@@ -1,1 +1,19 @@
-<p>user-list works!</p>
+<mat-list>
+    <mat-list-item *ngFor="let user of users">
+        <div class="row col-12">
+            <div class="col-md-4">
+                <span>{{ user.name }} {{ user.lastName }}</span>
+            </div>
+            <div class="col-md-4">
+                <span>{{ user.email }}</span>
+            </div>
+            <div class="col-md-2">
+                <span>{{ user.active }}</span>
+            </div>
+            <div class="col-md-2">
+                <mat-icon matListIcon>create</mat-icon>
+                <mat-icon matListIcon>delete</mat-icon>
+            </div>
+        </div>
+    </mat-list-item>
+</mat-list>
