@@ -3,13 +3,15 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { UserService } from './user.service';
 import * as faker from 'faker';
 import { IUser } from '../models/user';
+import { UserListComponent } from '../components/user-list/user-list.component';
 
 describe('UserService', () => {
   let service: UserService;
+  let component: UserListComponent;
 
   const mockResponse = {
     id: '9999',
-    createdAt: '2020-05-07T18:24:56.117Z',
+    createdAt: new Date(),
     name: 'This is a Test',
     lastName: 'This is a Test',
     accountNumber: 19,
@@ -24,17 +26,15 @@ describe('UserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
     service = TestBed.inject(UserService);
+    component = new UserListComponent(service);
   });
-/*
+
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  /*it('should get user', async () => {
-    service.getUser(1).subscribe((data: IUser) => {
-      console.log(data);
-      //done();
-    });
+  it('should get user', async () => {
+    component.getUser(1);
     //expect(user.name).toEqual('Vivienne');
-  });*/
+  });
 });

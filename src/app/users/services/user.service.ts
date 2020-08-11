@@ -13,8 +13,9 @@ export class UserService {
 
   getUserList(ini: number = 0, end: number = 0): Observable<IUser[]>{
     let paginator = '?';
-    paginator += (ini !== 0) ? 'page=' + ini : '';
+    paginator += ini !== 0 ? 'page=' + ini : 'page=1';
     paginator += (end !== 0) ? (paginator === '?') ? 'limit=' + end : '&' + 'limit=' + end : '';
+    console.log(this.apiUrl + paginator);
     return this.http.get<IUser[]>(this.apiUrl + paginator);
   }
 

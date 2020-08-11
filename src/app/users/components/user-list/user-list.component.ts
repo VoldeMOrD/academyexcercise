@@ -10,19 +10,19 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
-  @Input() users: any;
+  @Input() users: MatTableDataSource<IUser>;
   @Input() displayedColumns: string[] = ['id', 'name', 'email', 'active', 'button'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(private userService: UserService) {
-    this.userService.getUserList(0, 10).subscribe(list => {
-      // console.log(list);
+    this.userService.getUserList().subscribe(list => {
       this.users = new MatTableDataSource<IUser>(list);
+      this.users.paginator = this.paginator;
     });
   }
 
   ngOnInit(): void {
-    this.users.paginator = this.paginator;
+
   }
 
   getUser(id: number): void {
