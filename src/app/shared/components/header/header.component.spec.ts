@@ -18,7 +18,7 @@ describe('Header Component Test', () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    title = fixture.nativeElement.querySelector('span');
+    title = fixture.nativeElement.querySelector('a');
   });
 
   it('should create', () => {
