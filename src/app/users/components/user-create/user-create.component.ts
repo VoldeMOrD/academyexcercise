@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { IUser } from '../../models/user';
+import { UserListComponent } from '../user-list/user-list.component';
 
 @Component({
   selector: 'app-user-create',
@@ -14,19 +15,15 @@ export class UserCreateComponent implements OnInit {
   email: string;
   model: IUser;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor( private userService: UserService,
+               private router: Router ) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
     if (this.name && this.lastName && this.email) {
-      let newIndex = null;
-      this.userService.getUserList().subscribe(list => {
-        newIndex = list.length;
-      });
-
       const newUser: IUser = {
-        id: newIndex,
+        id: this.getUsersLenght(),
         createdAt: new Date(),
         name: this.name,
         lastName: this.lastName,
@@ -46,7 +43,23 @@ export class UserCreateComponent implements OnInit {
 
   createUser(user: IUser): void {
     this.userService.createUser(user).subscribe((data: IUser) => {
-      console.log(data);
+      // console.log('New user: ', data);
+      this.userService.feedBackMessage(data.name, 'created');
+      this.refresh();
     });
   }
+
+  getUsersLenght(): number {
+    let lenght = null;
+    this.userService.getUserList().subscribe(list => {
+      lenght = list.length;
+    });
+    return lenght;
+  }
+
+  refresh(): void {
+    const userList = new UserListComponent(this.userService);
+    userList.refresh();
+  }
+
 }
