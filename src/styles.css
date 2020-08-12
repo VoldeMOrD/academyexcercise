@@ -18,3 +18,11 @@ body {
 .title>h1 {
     font-weight: bold;
 }
+
+.mat-simple-snackbar>span {
+    padding: 0 2em;
+}
+
+.mat-snack-bar-container {
+    background-color: teal !important;
+}
