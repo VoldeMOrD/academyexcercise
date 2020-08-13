@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('currentUser', data[0].id.toString());
         this.refresh();
       } else {
-        alert('login incorrecto!');
+        this.userService.feedBackError('login incorrecto!');
       }
     });
   }
