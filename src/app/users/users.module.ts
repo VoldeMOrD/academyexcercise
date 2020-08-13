@@ -10,7 +10,7 @@ import { UserModifyComponent } from './components/user-modify/user-modify.compon
 
 @NgModule({
   declarations: [UserListComponent, UserCreateComponent, UserModifyComponent],
-  imports: [CommonModule, AppRoutingModule, AngularMaterialModule, FormsModule],
+  imports: [CommonModule, AppRoutingModule, AngularMaterialModule, FormsModule ],
   exports: [UserListComponent],
 })
 export class UsersModule {}

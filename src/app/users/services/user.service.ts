@@ -44,12 +44,32 @@ export class UserService {
     throw new Error('Method not implemented.');
   }
 
-  getToRoute(route: any[]): void {
+  getNullUser(): IUser {
+    return {
+      id: null,
+      createdAt: null,
+      name: null,
+      lastName: null,
+      accountNumber: null,
+      amount: null,
+      transactionType: null,
+      email: null,
+      active: null,
+      country: null,
+      telephone: null,
+    };
+  }
+
+  getToRoute(route: Array<string | number>): void {
     this.router.navigate(route);
   }
 
   feedBackMessage(userName: string, messageType: string): void {
     this.snackBar.open('User ' + userName + ' was ' + messageType + ' successfully!',
         '', { duration: 3000 });
+  }
+
+  feedBackError(message: string): void {
+    this.snackBar.open(message, '', { duration: 3000 });
   }
 }

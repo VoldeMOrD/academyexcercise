@@ -24,9 +24,18 @@ body {
 }
 
 .mat-snack-bar-container {
-    background-color: teal !important;
+    background-color: orange !important;
+}
+
+simple-snack-bar>span {
+    width: 100%;
+    text-align: center;
 }
 
 mat-form-field {
     width: 100%;
+}
+
+.template {
+    margin-bottom: 7em;
 }
