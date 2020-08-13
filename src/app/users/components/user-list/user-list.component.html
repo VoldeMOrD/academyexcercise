@@ -29,12 +29,12 @@
         <ng-container matColumnDef="button">
             <mat-header-cell *matHeaderCellDef> Buttons </mat-header-cell>
             <mat-cell *matCellDef="let element">
-                <button mat-icon-button aria-label="edit button">
-                <mat-icon matListIcon>create</mat-icon>
-            </button>
+                <button mat-icon-button aria-label="edit button" (click)="updateUser(element)">
+                    <mat-icon matListIcon>create</mat-icon>
+                </button>
                 <button mat-icon-button aria-label="delete button" (click)="deleteUser(element)">
-                <mat-icon matListIcon>delete</mat-icon>
-            </button>
+                    <mat-icon matListIcon>delete</mat-icon>
+                </button>
             </mat-cell>
         </ng-container>
 
