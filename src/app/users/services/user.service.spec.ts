@@ -4,6 +4,10 @@ import { UserService } from './user.service';
 import * as faker from 'faker';
 import { IUser } from '../models/user';
 import { UserListComponent } from '../components/user-list/user-list.component';
+import { Observable } from 'rxjs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UserService', () => {
   let service: UserService;
@@ -24,9 +28,14 @@ describe('UserService', () => {
   };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+        MatSnackBarModule,
+        RouterTestingModule,
+      ],
+    });
     service = TestBed.inject(UserService);
-    component = new UserListComponent(service);
   });
 
   it('should be created', () => {
@@ -34,7 +43,8 @@ describe('UserService', () => {
   });
 
   it('should get user', async () => {
-    component.getUser(1);
+    let obsUser: Observable<IUser> = await service.getUser(1);
+    console.log(obsUser);
     //expect(user.name).toEqual('Vivienne');
   });
 });
