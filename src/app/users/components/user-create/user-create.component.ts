@@ -6,14 +6,13 @@ import { UserListComponent } from '../user-list/user-list.component';
 
 @Component({
   selector: 'app-user-create',
-  templateUrl: './user-create.component.html',
-  styleUrls: ['./user-create.component.css'],
+  templateUrl: '../user-form/user-form.component.html'
 })
 export class UserCreateComponent implements OnInit {
+  title = 'Create a new User';
   name: string;
   lastName: string;
   email: string;
-  model: IUser;
 
   constructor( private userService: UserService,
                private router: Router ) {}
@@ -43,7 +42,6 @@ export class UserCreateComponent implements OnInit {
 
   createUser(user: IUser): void {
     this.userService.createUser(user).subscribe((data: IUser) => {
-      // console.log('New user: ', data);
       this.userService.feedBackMessage(data.name, 'created');
       this.refresh();
     });
@@ -61,5 +59,4 @@ export class UserCreateComponent implements OnInit {
     const userList = new UserListComponent(this.userService);
     userList.refresh();
   }
-
 }

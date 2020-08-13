@@ -1,5 +1,5 @@
 <div class="m-5 text-center title">
-    <h1>Create a new User</h1>
+    <h1>{{ title }}</h1>
 </div>
 
 <div class="container">
@@ -7,21 +7,21 @@
         <div>
             <mat-form-field>
                 <mat-label>Name</mat-label>
-                <input matInput id="name" name="name" [(ngModel)]="this.name" placeholder="Add the name of the user" required />
+                <input matInput id="name" name="name" [(ngModel)]="name" placeholder="Add the name of the user" required />
                 <mat-error>Name is required</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field>
                 <mat-label>Last Name</mat-label>
-                <input matInput id="lastName" name="lastName" [(ngModel)]="this.lastName" placeholder="Add the lastName of the user" required />
+                <input matInput id="lastName" name="lastName" [(ngModel)]="lastName" placeholder="Add the lastName of the user" required />
                 <mat-error>Last Name is required</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input matInput id="email" name="email" [(ngModel)]="this.email" placeholder="Add the email of the user" required />
+                <input matInput id="email" name="email" [(ngModel)]="email" placeholder="Add the email of the user" required />
                 <mat-error>Email is required</mat-error>
             </mat-form-field>
         </div>
