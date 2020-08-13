@@ -9,3 +9,7 @@ a {
 button {
     color: white;
 }
+
+ul {
+    margin-left: 100px;
+}
