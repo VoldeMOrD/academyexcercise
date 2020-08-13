@@ -32,6 +32,10 @@ export class UserService {
     return this.http.put<IUser>(this.apiUrl + user.id, user);
   }
 
+  doLogin(email: string): Observable<IUser[]> {
+    return this.http.get<IUser[]>(this.apiUrl + '?email=' + email);
+  }
+
   deleteUser(user: IUser): Observable<IUser> {
     return this.http.delete<IUser>(this.apiUrl + user.id);
   }
