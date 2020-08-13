@@ -4,7 +4,7 @@ import { UserService } from './user.service';
 import * as faker from 'faker';
 import { IUser } from '../models/user';
 import { UserListComponent } from '../components/user-list/user-list.component';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -43,8 +43,9 @@ describe('UserService', () => {
   });
 
   it('should get user', async () => {
-    let obsUser: Observable<IUser> = await service.getUser(1);
-    console.log(obsUser);
+    /*service.getUser(1).subscribe(data=>{
+      console.log(data);
+    });*/
     //expect(user.name).toEqual('Vivienne');
   });
 });
