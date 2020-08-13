@@ -6,9 +6,10 @@ import { AngularMaterialModule } from '../shared/modules/angular-material/angula
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserCreateComponent } from './components/user-create/user-create.component';
 import { FormsModule } from '@angular/forms';
+import { UserModifyComponent } from './components/user-modify/user-modify.component';
 
 @NgModule({
-  declarations: [UserListComponent, UserCreateComponent],
+  declarations: [UserListComponent, UserCreateComponent, UserModifyComponent],
   imports: [CommonModule, AppRoutingModule, AngularMaterialModule, FormsModule],
   exports: [UserListComponent],
 })
