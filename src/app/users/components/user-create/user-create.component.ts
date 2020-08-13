@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { IUser } from '../../models/user';
+import { ValidatorService } from '../../services/validator.service';
 
 @Component({
   selector: 'app-user-create',
@@ -8,16 +9,26 @@ import { IUser } from '../../models/user';
 })
 export class UserCreateComponent implements OnInit {
   type = 'Create';
-  user: any = {};
+  user: IUser = this.userService.getNullUser();
+  emailError: boolean;
 
-  constructor( private userService: UserService ) {}
+  constructor( private userService: UserService,
+               private validatorService: ValidatorService ) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    if (this.user.name && this.user.lastName && this.user.email) {
-      this.createUser(this.user);
-      this.userService.getToRoute(['']);
+    if (this.validatorService.validateFields(this.user)) {
+      this.emailError = this.validatorService.emailHasError(this.user.email);
+      if (!this.emailError) {
+        this.user.createdAt = new Date();
+        this.createUser(this.user);
+        this.userService.getToRoute(['']);
+      } else {
+        this.userService.feedBackError('Not a valid email');
+      }
+    } else {
+      this.userService.feedBackError('Should fill every field');
     }
   }
 

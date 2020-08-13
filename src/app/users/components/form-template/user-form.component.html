@@ -2,7 +2,7 @@
     <h1>{{ type }} a <span *ngIf="type == 'Create'">new </span>User</h1>
 </div>
 
-<div class="container">
+<div class="container template">
     <form (ngSubmit)="onSubmit()" role="form">
         <div>
             <mat-form-field>
@@ -21,9 +21,48 @@
         <div>
             <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input matInput id="email" name="email" [(ngModel)]="user.email" placeholder="Add the email of the user" required />
+                <input matInput type="email" id="email" name="email" [(ngModel)]="user.email" placeholder="Add the email of the user" required />
                 <mat-error>Email is required</mat-error>
             </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Telephone</mat-label>
+                <input matInput type="tel" id="telephone" name="telephone" [(ngModel)]="user.telephone" placeholder="Add the telephone of the user" required />
+                <mat-error>Telephone is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Accoun tNumber</mat-label>
+                <input matInput type="number" id="accountNumber" name="accountNumber" [(ngModel)]="user.accountNumber" placeholder="Add the accountNumber of the user" required />
+                <mat-error>Accoun tNumber is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Amount</mat-label>
+                <input matInput type="number" id="amount" name="amount" [(ngModel)]="user.amount" placeholder="Add the amount of the user" required>
+                <span matPrefix>$&nbsp;</span>
+                <mat-error>Amount is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Transaction Type</mat-label>
+                <input matInput id="transactionType" name="transactionType" [(ngModel)]="user.transactionType" placeholder="Add the transaction type for the user" required />
+                <mat-error>Transaction Type is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Country</mat-label>
+                <input matInput id="country" name="country" [(ngModel)]="user.country" placeholder="Add the country of the user" required />
+                <mat-error>Country is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mb-3">
+            <mat-slide-toggle name="user.active" [(ngModel)]="user.active" color="primary">{{ user.active ? 'Active' : 'Inactive' }}</mat-slide-toggle>
         </div>
         <button mat-raised-button color="primary" type="submit">{{ type }}</button>
         <a mat-stroked-button color="default" [routerLink]="''" class="ml-3" style="text-decoration: none;">Cancel</a>
