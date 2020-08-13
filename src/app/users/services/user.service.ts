@@ -4,13 +4,17 @@ import { IUser } from '../models/user';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   apiUrl = 'https://5eb57709de5849001638b6f0.mockapi.io/api/v1/users/';
-  constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
+
+  constructor(private http: HttpClient,
+              private snackBar: MatSnackBar,
+              private router: Router) { }
 
   getUserList(ini: number = 0, end: number = 0): Observable<IUser[]>{
     let paginator = '?';
@@ -42,6 +46,10 @@ export class UserService {
 
   handleError(arg0: string, hero: any): any {
     throw new Error('Method not implemented.');
+  }
+
+  getToRoute(route: any[]): void {
+    this.router.navigate(route);
   }
 
   feedBackMessage(userName: string, messageType: string): void {

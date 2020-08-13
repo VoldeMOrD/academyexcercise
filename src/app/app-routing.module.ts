@@ -4,11 +4,13 @@ import { UserListComponent } from './users/components/user-list/user-list.compon
 import { UserCreateComponent } from './users/components/user-create/user-create.component';
 import { LoginComponent } from './shared/components/login/login.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { UserModifyComponent } from './users/components/user-modify/user-modify.component';
 
 const routes: Routes = [
-  { path: '', component: UserListComponent, canActivate: [AuthGuardGuard]},
+  { path: '', component: UserListComponent, canActivate: [AuthGuardGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'create', component: UserCreateComponent, canActivate: [AuthGuardGuard] },
+  { path: 'update/:id', component: UserModifyComponent, canActivate: [AuthGuardGuard] },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
