@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../../users/services/user.service';
 import { IUser } from 'src/app/users/models/user';
+import { ValidatorService } from '../../../users/services/validator.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,11 @@ import { IUser } from 'src/app/users/models/user';
 export class LoginComponent implements OnInit {
   email: string;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private validatorService: ValidatorService
+  ) {}
 
   ngOnInit(): void {
     if (localStorage.getItem('currentUser')) {
@@ -20,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.validateEmail(this.email)){
+    if (this.validatorService.emailHasError(this.email)){
       this.userService.feedBackError('login incorrecto!');
     }else{
       this.userService.doLogin(this.email).subscribe((data: IUser[]) => {
@@ -32,15 +37,6 @@ export class LoginComponent implements OnInit {
         }
       });
     }
-  }
-
-  validateEmail( mail: string ): boolean {
-    if (
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test( mail)
-    ) {
-      return true;
-    }
-    return false;
   }
 
   refresh(): void {
