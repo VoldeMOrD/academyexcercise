@@ -26,3 +26,7 @@ body {
 .mat-snack-bar-container {
     background-color: teal !important;
 }
+
+mat-form-field {
+    width: 100%;
+}
