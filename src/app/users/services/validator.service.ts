@@ -23,7 +23,6 @@ export class ValidatorService {
     requiredFields.push(this.requiredField(this.user.amount));
     requiredFields.push(this.requiredField(this.user.transactionType));
     requiredFields.push(this.requiredField(this.user.email));
-    requiredFields.push(this.requiredField(this.user.active));
     requiredFields.push(this.requiredField(this.user.country));
     requiredFields.push(this.requiredField(this.user.telephone));
 

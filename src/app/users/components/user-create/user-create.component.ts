@@ -22,6 +22,7 @@ export class UserCreateComponent implements OnInit {
       this.emailError = this.validatorService.emailHasError(this.user.email);
       if (!this.emailError) {
         this.user.createdAt = new Date();
+        if (!this.user.active) { this.user.active = false; }
         this.createUser(this.user);
         this.userService.getToRoute(['']);
       } else {
