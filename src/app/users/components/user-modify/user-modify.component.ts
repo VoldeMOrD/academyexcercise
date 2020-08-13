@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { IUser } from '../../models/user';
+import { ValidatorService } from '../../services/validator.service';
 
 @Component({
   selector: 'app-user-modify',
@@ -9,9 +10,11 @@ import { IUser } from '../../models/user';
 })
 export class UserModifyComponent implements OnInit {
   type = 'Update';
-  user: any = {};
+  user: IUser = this.userService.getNullUser();
+  emailError: boolean;
 
   constructor( private userService: UserService,
+               private validatorService: ValidatorService,
                private route: ActivatedRoute ) {}
 
   ngOnInit(): void {
@@ -20,9 +23,16 @@ export class UserModifyComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.user) {
-      this.updateUser(this.user);
-      this.userService.getToRoute(['']);
+    if (this.validatorService.validateFields(this.user)) {
+      this.emailError = this.validatorService.emailHasError(this.user.email);
+      if (!this.emailError) {
+        this.updateUser(this.user);
+        this.userService.getToRoute(['']);
+      } else {
+        this.userService.feedBackError('Not a valid email');
+      }
+    } else {
+      this.userService.feedBackError('Should fill every field');
     }
   }
 
