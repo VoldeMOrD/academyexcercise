@@ -1,15 +1,7 @@
-.back {
-    background: #e2e2e2;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-}
-
 .div-center {
     width: 400px;
     height: 400px;
-    background-color: #fff;
+    color: #fff;
     position: absolute;
     left: 0;
     right: 0;

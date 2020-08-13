@@ -14,7 +14,7 @@ export class ValidatorService {
     return this.validateEachField();
   }
 
-  validateEachField(): boolean {
+  private validateEachField(): boolean {
     const requiredFields: boolean[] = [];
 
     requiredFields.push(this.requiredField(this.user.name));
@@ -30,7 +30,7 @@ export class ValidatorService {
     return !(requiredFields.indexOf(false) >= 0);
   }
 
-  requiredField(field: string|number|boolean): boolean {
+  private requiredField(field: string|number|boolean): boolean {
     return (field) ? true : false;
   }
 
