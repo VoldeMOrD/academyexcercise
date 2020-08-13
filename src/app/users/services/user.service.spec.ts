@@ -11,7 +11,7 @@ describe('UserService', () => {
 
   const mockResponse = {
     id: '9999',
-    createdAt: new Date(),
+    createdAt: '2020-05-07T18:24:56.117Z',
     name: 'This is a Test',
     lastName: 'This is a Test',
     accountNumber: 19,

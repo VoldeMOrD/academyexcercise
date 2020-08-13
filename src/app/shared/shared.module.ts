@@ -7,10 +7,12 @@ import { AngularMaterialModule } from './modules/angular-material/angular-materi
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ HeaderComponent, FooterComponent, MenuComponent ],
-  imports: [ CommonModule, AppRoutingModule, AngularMaterialModule ],
-  exports: [ AngularMaterialModule, HeaderComponent, FooterComponent, MenuComponent ]
+  declarations: [ HeaderComponent, FooterComponent, MenuComponent, LoginComponent ],
+  imports: [ CommonModule, AppRoutingModule, AngularMaterialModule, FormsModule ],
+  exports: [AngularMaterialModule, HeaderComponent, FooterComponent, MenuComponent, LoginComponent ]
 })
 export class SharedModule { }

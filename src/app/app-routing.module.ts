@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserListComponent } from './users/components/user-list/user-list.component';
 import { UserCreateComponent } from './users/components/user-create/user-create.component';
+import { LoginComponent } from './shared/components/login/login.component';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { UserModifyComponent } from './users/components/user-modify/user-modify.component';
 
 const routes: Routes = [
-  { path: '', component: UserListComponent },
-  { path: 'create', component: UserCreateComponent },
-  { path: 'update/:id', component: UserModifyComponent },
+  { path: '', component: UserListComponent, canActivate: [AuthGuardGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'create', component: UserCreateComponent, canActivate: [AuthGuardGuard] },
+  { path: 'update/:id', component: UserModifyComponent, canActivate: [AuthGuardGuard] },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
